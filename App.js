@@ -8,41 +8,42 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
+import {createStackNavigator, createAppContainer} from 'react-navigation';
+import LoginScreen from './src/components/screens/LoginScreen/LoginScreen.js';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
+// class App extends Component {
+//   render() {
+//     return (
+//       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+//         <Text>Hello World!</Text>
+//       </View>
+//     );
+//   }
+// }
+
+// class LoginScreen extends React.Component {
+//   static navigationOptions = {}
+
+//   render() {
+//       // const {navigate} = this.props.navigation
+//       return (
+//           <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+//               <Text>Hello World! from above</Text>
+//           </View>
+//           // <button
+//           //     title= "go to profile"
+//           //     onPress={() => navigate('Profile', {name: 'jane'})}
+//           // />
+//       );
+//   }
+// }
+
+const appNavigator = createStackNavigator({
+  Login: {
+    screen: LoginScreen
+  }
 });
 
-class App extends Component {
-  render() {
-    return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Text>Hello World bruv</Text>
-      </View>
-    );
-  }
-}
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//     backgroundColor: 'red',
-//   },
-//   welcome: {
-//     fontSize: 20,
-//     textAlign: 'center',
-//     margin: 10,
-//   },
-//   instructions: {
-//     textAlign: 'center',
-//     color: '#333333',
-//     marginBottom: 5,
-//   },
-// });
+const App = createAppContainer(appNavigator);
 
 export default App;
