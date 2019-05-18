@@ -3,6 +3,8 @@ package com.medoapp;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.taobao.gcanvas.plugin.rn.GReactPackage;
+import com.reactnativecommunity.webview.RNCWebViewPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -24,6 +26,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new GReactPackage(),
+            new RNCWebViewPackage(),
             new RNGestureHandlerPackage()
       );
     }
@@ -43,5 +47,13 @@ public class MainApplication extends Application implements ReactApplication {
   public void onCreate() {
     super.onCreate();
     SoLoader.init(this, /* native exopackage */ false);
+  }
+
+  @Override
+  protected List<ReactPackage> getPackages() {
+    return Arrays.<ReactPackage>asList(
+        new MainReactPackage(),
+        new GReactPackage()
+    );
   }
 }
