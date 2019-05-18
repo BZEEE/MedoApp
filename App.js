@@ -10,16 +10,8 @@ import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 import {createStackNavigator, createAppContainer} from 'react-navigation';
 import LoginScreen from './src/components/screens/LoginScreen/LoginScreen.js';
-
-// class App extends Component {
-//   render() {
-//     return (
-//       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-//         <Text>Hello World!</Text>
-//       </View>
-//     );
-//   }
-// }
+import WorkSpaceScreen from "./src/components/screens/WorkSpaceScreen/WorkSpaceScreen.js"
+import ViewScanScreen from "./src/components/screens/ViewScanScreen/ViewScanScreen.js"
 
 // class LoginScreen extends React.Component {
 //   static navigationOptions = {}
@@ -38,11 +30,16 @@ import LoginScreen from './src/components/screens/LoginScreen/LoginScreen.js';
 //   }
 // }
 
-const appNavigator = createStackNavigator({
-  Login: {
-    screen: LoginScreen
+const appNavigator = createStackNavigator(
+  {
+    Login: LoginScreen,
+    WorkSpace: WorkSpaceScreen,
+    screen: ViewScanScreen
+  },
+  {
+    initialRouteName: "Login"
   }
-});
+);
 
 const App = createAppContainer(appNavigator);
 

@@ -1,33 +1,43 @@
 
 import React, {Component} from 'react';
-import {View, Text} from "react-native"
-import styles from "./LoginScreenStyleSheet.js"
+import {View, Text, Button, TextInput} from "react-native";
+import { createStackNavigator, createAppContainer } from 'react-navigation';
+// import MedoCanvas from "./../../container/MedoCanvas.js";
+import styles from "./LoginScreenStyleSheet.js";
+// var {height, width} = Dimensions.get('window');
 
 
 class LoginScreen extends Component {
     static navigationOptions = {}
+    constructor(props) {
+        super(props);
+        this.state = { text: "username" }
+    }
 
     render() {
         // const {navigate} = this.props.navigation
         return (
-            <View style={styles.container}>
-                <Text>Hello World!</Text>
+            <View style={styles.view}>
+                <Text style={styles.logo}>MEDO</Text>
+                <TextInput style={styles.username}>
+                    {/* onChangeText={ (text) =>this.setState({text}) }
+                    value={this.state.text}  */}
+                </TextInput>
+                <TextInput style={styles.password}>
+                    {/* onChangeText={ (text) =>this.setState({text}) }
+                    value={this.state.text}  */}
+                </TextInput>
+                <Button style={styles.button}
+                    title="Login"
+                    onPress={() => this.props.navigation.push('WorkSpace')}
+                />
             </View>
-            // <button
+            // <Button
             //     title= "go to profile"
             //     onPress={() => navigate('Profile', {name: 'jane'})}
             // />
         );
     }
 }
-
-// const styles = StyleSheet.create({
-//     container: {
-//       flex: 1,
-//       justifyContent: 'center',
-//       alignItems: 'center',
-//       // backgroundColor: 'red',
-//     },
-// });
 
 export default LoginScreen;
